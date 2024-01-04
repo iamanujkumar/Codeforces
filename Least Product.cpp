@@ -1,18 +1,38 @@
-class Solution {
-public:
-    int buyChoco(vector<int>& prices, int money) {
-        sort(prices.begin(),prices.end());
-        for(int i=0;i<prices.size()-1;i++){
-            int sum=0;
-            for(int j=i+1;j<prices.size();j++){
-
-                sum=prices[i]+prices[j];
-                if(sum>money) return money;
-                else return money-sum;
-            }
-            
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int arr[n];
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
         }
-        return money;
-
+        int ngt=0,zro=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]<0){
+               ngt++;
+            }
+            if(arr[i]==0){
+                zro++;
+            }
+        }
+        if(zro!=0) cout<<"0"<<endl;
+        else{
+            if(ngt%2==0){
+                cout<<"1"<<endl;
+                cout<<"1"<<" "<<"0"<<endl;
+            }
+            else cout<<"0"<<endl;
+        }
+        
+        
     }
-};
+ 
+    return 0;
+}
