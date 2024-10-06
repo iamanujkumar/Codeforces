@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+#define int long long
+ 
+signed main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+ 
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+ 
+    int tt; cin >> tt;
+ 
+    while(tt--) {
+        int n; cin >> n;
+        int left = 1, right = 4e18, val = 4e18;
+ 
+        while(left <= right) {
+            int mid = (left + right) / 2;
+            int on = mid - (int)sqrtl(mid);
+            if(on < n) left = mid + 1;
+            else val = mid, right = mid - 1;
+        }   
+ 
+        cout << val << "\n";
+    }
+}
